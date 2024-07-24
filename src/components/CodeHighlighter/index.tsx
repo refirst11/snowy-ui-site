@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useLayoutEffect, useState } from "react";
 import { createHighlighter } from "shiki";
 
 type CodeHighlighterProps = {
@@ -14,7 +14,7 @@ const CodeHighlighter: React.FC<CodeHighlighterProps> = ({
 }) => {
   const [highlightedCode, setHighlightedCode] = useState<string>("");
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const highlightCode = async () => {
       const highlighter = await createHighlighter({
         langs: [language],
