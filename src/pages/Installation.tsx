@@ -24,6 +24,7 @@ const Home = () => {
         Styling: CSS in JS | Next.js
       </a>
       <br />
+      <h2>Animation Pattern Sampler</h2>
       <Link to="/animation1">Go to Animation1</Link>
     </main>
   );
