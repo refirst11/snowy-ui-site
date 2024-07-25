@@ -7,7 +7,7 @@ const code = `
 <Snowy 
   in="div" 
   melts={{
-    exit: { opacity: 0, y: -40, transition: { duration: 0.2 } },
+    exit: { opacity: 0, x: -40, transition: { duration: 0.2 } },
     entry: { opacity: 0, y: -40, transition: { duration: 1 } },
   }}>
   Snowy UI
@@ -20,7 +20,7 @@ const Animation1 = () => {
       <Snowy
         in="div"
         melts={{
-          exit: { opacity: 0, y: -40, transition: { duration: 0.2 } },
+          exit: { opacity: 0, x: -40, transition: { duration: 0.2 } },
           entry: { opacity: 0, y: -40, transition: { duration: 1 } },
         }}
       >
