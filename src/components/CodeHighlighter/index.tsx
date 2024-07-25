@@ -30,12 +30,14 @@ const CodeHighlighter: React.FC<CodeHighlighterProps> = ({
     highlightCode();
   }, [code, language, theme]);
 
-  return (
-    <div
-      className={highlightedCode ? "visible" : "hidden"}
-      dangerouslySetInnerHTML={{ __html: highlightedCode }}
-    />
-  );
+  if (!highlightedCode) {
+    return (
+      <pre>
+        <code>{code}</code>
+      </pre>
+    );
+  }
+  return <div dangerouslySetInnerHTML={{ __html: highlightedCode }} />;
 };
 
 export default CodeHighlighter;

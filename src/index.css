@@ -31,6 +31,7 @@ pre {
   border-radius: 8px;
   overflow-x: auto;
   width: 800px;
+  background: #07090f;
 }
 
 .visible {
@@ -45,6 +46,7 @@ pre {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+  color: aliceblue;
 }
 
 a {
