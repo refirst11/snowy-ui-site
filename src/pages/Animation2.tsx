@@ -7,21 +7,21 @@ const code = `
 <Snowy
   in="main"
   melts={{
-    exit: { opacity: 0, x: -20, transition: { duration: 0.2 } },
-    entry: { opacity: 0, y: -20, transition: { duration: 0.8 } },
+    exit: { opacity: 0, scale: 1.07, transition: { duration: 0.2 } },
+    entry: { opacity: 0, scale: 0.93, transition: { duration: 0.8 } },
   }}
 >
   Snowy UI
 </Snowy>
   `;
 
-const Animation1 = () => {
+const Animation2 = () => {
   return (
     <Snowy
       in="main"
       melts={{
-        exit: { opacity: 0, x: -20, transition: { duration: 0.2 } },
-        entry: { opacity: 0, y: -20, transition: { duration: 0.8 } },
+        exit: { opacity: 0, scale: 1.07, transition: { duration: 0.2 } },
+        entry: { opacity: 0, scale: 0.93, transition: { duration: 0.8 } },
       }}
       sx={{
         minHeight: "100vh",
@@ -38,7 +38,7 @@ const Animation1 = () => {
           width: "100%",
         }}
       >
-        <h1>Animation1 Move + Opacity</h1>
+        <h1>Animation2 Scale In Out</h1>
         <Tabs>
           <Tab>
             <CodeHighlighter code={code} language="tsx" />
@@ -50,4 +50,4 @@ const Animation1 = () => {
   );
 };
 
-export default Animation1;
+export default Animation2;
