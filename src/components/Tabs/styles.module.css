@@ -25,9 +25,8 @@
   z-index: 1;
   position: relative;
   font-size: 12px;
-  margin-left: auto;
-  left: 40px;
-  top: 32px;
+  right: 6px;
+  top: 30px;
   height: 26px;
   width: 26px;
   background-color: rgb(245, 245, 253);
@@ -73,9 +72,9 @@
   border-radius: 4px;
   font-size: 12px;
   bottom: 100%;
-  top: -12px;
+  top: -16px;
   height: max-content;
-  margin-left: 40px;
+  margin-left: -6px;
   left: 50%;
   transform: translateX(-50%);
   white-space: nowrap;
@@ -92,4 +91,17 @@
   border-width: 5px;
   border-style: solid;
   border-color: #333 transparent transparent transparent;
+}
+
+@media screen and (max-width: 739.98px) {
+  .copyButton {
+    scale: 0.7;
+    right: 0;
+    top: 22px;
+  }
+  .tooltip {
+    scale: 0.7;
+    margin-left: -10px;
+    top: -12px;
+  }
 }

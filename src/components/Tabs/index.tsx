@@ -1,6 +1,6 @@
 "use client";
 
-import React, { ReactNode, useState, useRef } from "react";
+import React, { ReactNode, useState, useRef, useEffect } from "react";
 import { FiCopy, FiCheck } from "react-icons/fi";
 import styles from "./styles.module.css";
 
@@ -15,6 +15,7 @@ export const Tabs = ({ items, children }: TabsProps) => {
   const [visible, setVisible] = useState(false);
   const [showTooltip, setShowTooltip] = useState(false);
   const codeRef = useRef<HTMLDivElement>(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
 
   const handleTabClick = (index: number) => {
     setActiveTab(index);
@@ -30,6 +31,31 @@ export const Tabs = ({ items, children }: TabsProps) => {
       });
     }
   };
+
+  const handleCodeBoxInteraction = () => {
+    setVisible(true);
+  };
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent | TouchEvent) => {
+      if (
+        buttonRef.current &&
+        !buttonRef.current.contains(event.target as Node) &&
+        codeRef.current &&
+        !codeRef.current.contains(event.target as Node)
+      ) {
+        setVisible(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("touchstart", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("touchstart", handleClickOutside);
+    };
+  }, []);
 
   return (
     <>
@@ -50,15 +76,15 @@ export const Tabs = ({ items, children }: TabsProps) => {
         ))}
         <div className={styles.tooltipWrapper}>
           <button
+            ref={buttonRef}
             onClick={handleCopy}
             onMouseEnter={() => {
-              setVisible(true);
               setShowTooltip(true);
+              handleCodeBoxInteraction();
             }}
-            onMouseLeave={() => {
-              setVisible(false);
-              setShowTooltip(false);
-            }}
+            onMouseLeave={() => setShowTooltip(false)}
+            onFocus={() => setShowTooltip(true)}
+            onBlur={() => setShowTooltip(false)}
             className={`${
               copied
                 ? styles.noactive + " " + styles.copyButton
@@ -75,15 +101,16 @@ export const Tabs = ({ items, children }: TabsProps) => {
           </button>
           {showTooltip && (
             <div className={styles.tooltip}>
-              {copied ? "Copied!" : "Copy to clipboard"}
+              {copied ? "Copied!" : "clipboard"}
             </div>
           )}
         </div>
       </div>
       <div
         ref={codeRef}
-        onMouseEnter={() => setVisible(true)}
+        onMouseEnter={handleCodeBoxInteraction}
         onMouseLeave={() => setVisible(false)}
+        onTouchStart={handleCodeBoxInteraction}
         className={styles.code_box}
       >
         {React.Children.toArray(children)[activeTab]}
