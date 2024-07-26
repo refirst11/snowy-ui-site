@@ -7,11 +7,11 @@ type CodeHighlighterProps = {
   theme?: string;
 };
 
-const CodeHighlighter: React.FC<CodeHighlighterProps> = ({
+const CodeHighlighter = ({
   code,
   language,
-  theme = "aurora-x",
-}) => {
+  theme = "snazzy-light",
+}: CodeHighlighterProps) => {
   const [highlightedCode, setHighlightedCode] = useState<string>("");
 
   useLayoutEffect(() => {
@@ -24,7 +24,13 @@ const CodeHighlighter: React.FC<CodeHighlighterProps> = ({
         lang: language,
         theme: theme,
       });
-      setHighlightedCode(html);
+
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(html, "text/html");
+      const preElement = doc.querySelector("pre");
+      const codeElement = preElement ? preElement.innerHTML : code;
+
+      setHighlightedCode(codeElement);
     };
 
     highlightCode();
@@ -37,7 +43,8 @@ const CodeHighlighter: React.FC<CodeHighlighterProps> = ({
       </pre>
     );
   }
-  return <div dangerouslySetInnerHTML={{ __html: highlightedCode }} />;
+
+  return <pre dangerouslySetInnerHTML={{ __html: highlightedCode }} />;
 };
 
 export default CodeHighlighter;
