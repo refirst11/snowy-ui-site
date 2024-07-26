@@ -7,11 +7,32 @@ const code = `
 npm install @snowy-ui/react styled-components
   `;
 
+const codeMedia = `
+const sm = "@media (max-width: 640px)";
+const md = "@media (max-width: 768px)";
+const lg = "@media (max-width: 1024px)";
+const xl = "@media (max-width: 1280px)";
+  
 const Home = () => {
   return (
-    <main>
-      <Snowy in="h1" sx={{ fontSize: 50 }}>
+      <Snowy in="h2" sx={{ [md]: { fontSize: 24 } }}>
         Snowy UI
+      </Snowy>
+  );
+};
+  `;
+
+const codePseudo = `
+<Snowy in="h2" sx={{ "&:hover": { color: 'pink' } }}>
+  Snowy UI
+</Snowy>
+  `;
+
+const Home = () => {
+  return (
+    <Snowy in="main" melts={{ entry: {} }}>
+      <Snowy in="h1" sx={{ fontSize: 50, color: "aliceblue" }}>
+        ❄ Snowy UI ❄
       </Snowy>
       <h1>Installation</h1>
       <Tabs>
@@ -26,7 +47,21 @@ const Home = () => {
       <br />
       <h2>Animation Pattern Sampler</h2>
       <Link to="/animation1">Go to Animation1</Link>
-    </main>
+      <Link to="/animation2">Animation2</Link>
+      <Link to="/animation3">Animation3</Link>
+      <h1>Media Query</h1>
+      <Tabs>
+        <Tab>
+          <CodeHighlighter code={codeMedia} language="tsx" />
+        </Tab>
+      </Tabs>
+      <h1>Pseudos</h1>
+      <Tabs>
+        <Tab>
+          <CodeHighlighter code={codePseudo} language="tsx" />
+        </Tab>
+      </Tabs>
+    </Snowy>
   );
 };
 
