@@ -30,7 +30,12 @@ const codePseudo = `
 
 const Home = () => {
   return (
-    <Snowy in="main">
+    <Snowy
+      in="main"
+      sx={{
+        position: "relative",
+      }}
+    >
       <Snowy in="h1" sx={{ fontSize: 50, color: "aliceblue" }}>
         ❄ Snowy UI ❄
       </Snowy>
