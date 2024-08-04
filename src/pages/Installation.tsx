@@ -49,15 +49,6 @@ const Home = () => {
           position: "relative",
           right: 12,
         }}
-        melts={{
-          exit: { rotateX: 720, scale: 0.8, transition: { duration: 0.8 } },
-          entry: {
-            rotateX: 720,
-            scale: 1.2,
-            opacity: 0,
-            transition: { duration: 0.8 },
-          },
-        }}
       >
         ❄ Snowy UI ❄
       </Snowy>
