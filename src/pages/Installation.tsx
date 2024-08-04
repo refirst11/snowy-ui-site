@@ -35,19 +35,13 @@ const Home = () => {
       sx={{
         position: "relative",
       }}
-      melts={{
-        exit: { opacity: 0, transition: { duration: 0.8 } },
-        entry: { opacity: 0, transition: { duration: 0.8 } },
-      }}
     >
       <Snowy
         in="h1"
         sx={{
+          position: "relative",
           fontSize: 50,
           color: "aliceblue",
-          width: 360,
-          position: "relative",
-          right: 12,
         }}
       >
         ❄ Snowy UI ❄
