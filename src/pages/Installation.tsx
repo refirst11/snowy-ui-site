@@ -35,6 +35,10 @@ const Home = () => {
       sx={{
         position: "relative",
       }}
+      melts={{
+        exit: { opacity: 0, y: 40, transition: { duration: 1 } },
+        entry: { opacity: 0, y: -40, transition: { duration: 0.8 } },
+      }}
     >
       <Snowy
         in="h1"
@@ -42,6 +46,10 @@ const Home = () => {
           position: "relative",
           fontSize: 50,
           color: "aliceblue",
+        }}
+        melts={{
+          exit: { rotateX: 360, transition: { duration: 1 } },
+          entry: { rotateX: 360, transition: { duration: 0.8 } },
         }}
       >
         ❄ Snowy UI ❄
