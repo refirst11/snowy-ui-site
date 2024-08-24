@@ -14,9 +14,9 @@ body {
   height: 100%;
   margin: 0 auto;
   font-size: 14px;
-  color: var(--color-text);
+  color: white;
   text-align: center;
-  background: lightblue;
+  background: #000;
 }
 
 main {
@@ -47,7 +47,7 @@ code {
 a {
   position: relative;
   left: -4px;
-  color: #455777;
+  color: #9fe1ff;
   text-decoration: none;
   padding: 4px;
   border: 2px solid transparent;

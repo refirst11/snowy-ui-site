@@ -33,6 +33,7 @@ const Home = () => {
     <Snowy
       in="main"
       sx={{
+        zIndex: 2,
         position: "relative",
       }}
       melts={{

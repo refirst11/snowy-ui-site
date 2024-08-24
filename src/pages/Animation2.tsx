@@ -24,6 +24,8 @@ const Animation2 = () => {
         entry: { opacity: 0, scale: 0.93, transition: { duration: 0.8 } },
       }}
       sx={{
+        zIndex: 2,
+        position: "relative",
         minHeight: "100vh",
         textAlign: "center",
       }}
